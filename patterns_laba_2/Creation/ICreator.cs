@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace patterns_laba_2.Creation;
+﻿namespace patterns_laba_2.Creation;
 
 /// <summary>
 /// Интерфейс для использования шаблона "Object Pool" <see cref="ObjectPool"/>
