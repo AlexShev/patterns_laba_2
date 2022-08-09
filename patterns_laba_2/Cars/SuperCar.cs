@@ -1,9 +1,11 @@
-﻿namespace patterns_laba_2.Cars;
+﻿using patterns_laba_2.Printers;
+
+namespace patterns_laba_2.Cars;
 
 /// <summary>
 /// Класс автомобиля Хот род, реализует интерфейс <see cref="ICar"/>
 /// </summary>
-public class SuperCar : ICar
+public class SuperCar : ICar, IPrinterUser
 {
     /// <summary>
     /// Номер машины
@@ -15,6 +17,11 @@ public class SuperCar : ICar
     /// </summary>
     public static int CarCounter { get; private set; } = 0;
 
+    /// <summary>
+    /// Объект класса <see cref="Printer"/> предназначен для вывода информации на консоль
+    /// </summary>
+    public Printer? Printer { get; set; }
+
     public SuperCar()
     {
         CarNumber = ++CarCounter;
@@ -25,7 +32,7 @@ public class SuperCar : ICar
     /// </summary>
     public void Ride()
     {
-        Console.WriteLine($"вжух... пролетел Суперкар {CarNumber}");
+        Printer?.PrintLn($"вжух... пролетел Суперкар {CarNumber}");
     }
 
     public override string ToString() => $"Суперкар - {CarNumber}";

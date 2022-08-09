@@ -1,4 +1,6 @@
-﻿namespace patterns_laba_2.Cars;
+﻿using patterns_laba_2.Printers;
+
+namespace patterns_laba_2.Cars;
 
 /// <summary>
 /// Интерфейс для обобщения видов автомобилей
@@ -7,7 +9,7 @@
 /// <item><see cref="SuperCar"/></item>
 /// </list>
 /// </summary>
-public interface ICar
+public interface ICar : IPrinterUser
 {
     /// <summary>
     /// Метод для запуска

@@ -1,6 +1,6 @@
 ﻿using patterns_laba_2.Creation;
 
-namespace patterns_laba_2.Pool;
+namespace patterns_laba_2.Pools;
 
 /// <summary>
 /// Реализация пула объектов, использующего "мягкие" ссылки
@@ -37,14 +37,14 @@ public class ObjectPool<T> where T : class
     /// <summary>
     /// Создание пула объектов
     /// </summary>
-    /// <param name="creator">Объект, которому пул будет делегировать ответственность
+    /// <param name="creator">Объект, которому пул делегирует ответственность
     /// за создание управляемых им объектов</param>
     public ObjectPool(ICreator<T> creator) : this(creator, int.MaxValue) { }
 
     /// <summary>
     /// Создание пула объектов
     /// </summary>
-    /// <param name="creator">Объект, которому пул будет делегировать ответственность
+    /// <param name="creator">Объект, которому пул делегирует ответственность
     /// за создание управляемых им объектов</param>
     /// <param name="maxInstances">Максимальное количество экземпляров классов,
     /// которым пул разрешает существовать одновременно
@@ -60,9 +60,7 @@ public class ObjectPool<T> where T : class
 
     /// <summary>
     /// Возвращает количество объектов в пуле, ожидающих повторного
-    /// использования. Реальное количество может быть меньше
-    /// этого значения, поскольку возвращаемая 
-    /// величина - это количество "мягких" ссылок в пуле.
+    /// использования.
     /// </summary>
     public int Size
     {
@@ -166,7 +164,7 @@ public class ObjectPool<T> where T : class
 
             // уменьшаем количство доступных объектов
             _instanceCount--;
-
+            
             // возвращаем если это объект
             if (thisObject != null)
                 return thisObject;
@@ -201,7 +199,7 @@ public class ObjectPool<T> where T : class
             // увеличиваем счётчик объектов
             _instanceCount++;
          
-            Console.WriteLine($"объект {obj.ToString()} вернулась");
+            Console.WriteLine($"объект {obj} вернулась");
             
             // возвращаем объект в пул
             _pool.Add(obj);
