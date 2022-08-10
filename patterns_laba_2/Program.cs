@@ -2,14 +2,9 @@
 using patterns_laba_2.Creation;
 using patterns_laba_2.Pools;
 using patterns_laba_2.Printers;
-using System;
 
 partial class Program
 {
-    static object loker = new();
-    static Random random = new Random();
-
-
     static void Main(string[] args)
     {
         var reusablePool = new Pool<ICar>(new CarCreator(), 20);
